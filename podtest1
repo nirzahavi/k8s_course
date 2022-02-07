@@ -9,10 +9,10 @@ image: supergiantkir/animals:bear
 volumeMounts:
 - name: app-storage
 mountPath: /storage
-- name: app2
+name: app2
 image: yanivomc/spring-music:latest
 volumeMounts:
-- name: app-storage
+name: app-storage
 mountPath: /storage
 volumes:
 - name: app-storage

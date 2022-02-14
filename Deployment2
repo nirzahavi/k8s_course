@@ -8,8 +8,8 @@ metadata:
 spec:
   replicas: 3
   strategy:
-  type: RollingUpdate
-  rollingUpdate:
+   type: RollingUpdate
+   rollingUpdate:
     maxSurge: 100
     minSurge: 25
   selector:

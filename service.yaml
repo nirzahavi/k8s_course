@@ -1,13 +1,18 @@
-kind: Service     
-apiVersion: v1     
+kind: Service
+apiVersion: v1
 metadata:
-  name: {{ .Values.service.Service_name}} 
+  name: {{ .Values.service.Service_name}}
 spec:
   selector:
-    app: music    
-  type: {{ .Values.service.selector_type}}  
-  ports:         
-  - name: http   
+    app: music
+  #type: {{ .Values.service.selector_type}}
+  {{ if .Values.Ingress.enabled  }}
+    type: ClusterIP
+  {{ else }}
+    type: LoadBalancer
+  {{ end }}
+  ports:
+  - name: http
     protocol: TCP
     port: {{ .Values.service.port}}
     targetPort: {{ .Values.service.targetPort}}

@@ -7,3 +7,5 @@ Deployment:
   Deployment_name: spring-music
   replicas_number: 1
   image_name: yanivomc/spring-music:latest
+Ingress:
+  enabled: false

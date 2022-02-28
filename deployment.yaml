@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.Deployment.Deployment_name}} 
+spec:
+  selector: 
+    matchLabels:
+      app: music  
+  replicas: {{ .Values.Deployment.replicas_number}}  
+  template:
+    metadata:
+      labels:
+        app: music
+    spec:
+      containers:
+      - name: spring-music
+        image: {{ .Values.Deployment.image_name}}
+        ports:
+        - containerPort: 8080
